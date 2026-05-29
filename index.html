@@ -6,38 +6,38 @@
     <title>Prism Labs | Science Encyclopedia</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Additional directory-specific styles */
         .directory-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
         .category-card {
             background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 1.5rem;
+            border-radius: 24px;
+            padding: 1.8rem;
             transition: all 0.3s;
         }
         .category-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
         }
         .category-title {
             font-size: 1.8rem;
+            font-weight: 700;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
         }
         .topic-list {
             list-style: none;
-            margin-top: 1rem;
+            margin-top: 1.2rem;
         }
         .topic-list li {
-            margin: 0.75rem 0;
-            padding: 0.5rem;
+            margin: 0.9rem 0;
+            padding: 0.5rem 0;
             border-bottom: 1px solid var(--border);
         }
         .topic-list a {
@@ -46,37 +46,45 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: color 0.2s;
+            font-weight: 500;
+            transition: 0.2s;
         }
         .topic-list a:hover {
             color: var(--accent);
+            transform: translateX(4px);
         }
         .arrow {
             opacity: 0.6;
+            font-size: 1.2rem;
         }
-        .featured {
+        .featured-badge {
             background: linear-gradient(135deg, var(--accent), #764ba2);
             color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
             font-size: 0.7rem;
             font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
         }
         .search-box {
-            max-width: 500px;
-            margin: 2rem auto;
+            max-width: 540px;
+            margin: 2rem auto 0;
         }
         .search-box input {
             width: 100%;
-            padding: 1rem;
+            padding: 1rem 1.5rem;
             font-size: 1rem;
-            border-radius: 50px;
+            border-radius: 60px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            color: var(--text);
         }
     </style>
 </head>
 <body>
     <nav>
-        <div class="logo">📚 <span>Prism Labs</span> <span style="font-size:0.8rem;">Encyclopedia</span></div>
+        <div class="logo">📚 <span>Prism Labs</span> <span style="font-size:0.8rem; font-weight:normal;">Encyclopedia</span></div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="#chemistry">Chemistry</a></li>
@@ -90,45 +98,37 @@
         <h1>📖 Science <span class="gradient">Encyclopedia</span></h1>
         <p>Your free, interactive guide to chemistry and physics – from atoms to black holes.</p>
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="🔍 Search topics... (e.g., quantum, bond, star)" onkeyup="searchTopics()">
+            <input type="text" id="searchInput" placeholder="🔍 Search topics... (quantum, bonding, star, etc.)" onkeyup="searchTopics()">
         </div>
     </section>
 
     <div class="container" style="padding: 0 2rem 4rem;">
         <div class="directory-grid">
-            <!-- Chemistry Category -->
+            <!-- Chemistry -->
             <div class="category-card" id="chemistry-cat">
-                <div class="category-title">
-                    <span>🧪</span> Chemistry
-                </div>
-                <p style="color: var(--text-secondary); margin-bottom: 1rem;">The study of matter, elements, and reactions.</p>
+                <div class="category-title"><span>🧪</span> Chemistry</div>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">The study of matter, elements, and chemical reactions.</p>
                 <ul class="topic-list">
                     <li><a href="topics/chemistry/periodic-table.html">Periodic Table <span class="arrow">→</span></a></li>
                     <li><a href="topics/chemistry/chemical-bonding.html">Chemical Bonding <span class="arrow">→</span></a></li>
                     <li><a href="topics/chemistry/thermodynamics.html">Thermodynamics <span class="arrow">→</span></a></li>
                 </ul>
-                <div class="featured" style="margin-top: 1rem; display: inline-block;">New: Organic Chemistry coming soon</div>
+                <div class="featured-badge">✨ New: Organic Chemistry coming soon</div>
             </div>
-
-            <!-- Physics Category -->
+            <!-- Physics -->
             <div class="category-card" id="physics-cat">
-                <div class="category-title">
-                    <span>🌌</span> Physics
-                </div>
+                <div class="category-title"><span>🌌</span> Physics</div>
                 <p style="color: var(--text-secondary); margin-bottom: 1rem;">From quantum particles to cosmic structures.</p>
                 <ul class="topic-list">
                     <li><a href="topics/physics/quantum-mechanics.html">Quantum Mechanics <span class="arrow">→</span></a></li>
                     <li><a href="topics/physics/relativity.html">Relativity <span class="arrow">→</span></a></li>
                     <li><a href="topics/physics/astrophysics.html">Astrophysics <span class="arrow">→</span></a></li>
                 </ul>
-                <div class="featured" style="margin-top: 1rem; display: inline-block;">Featured: Black Holes</div>
+                <div class="featured-badge">🔭 Featured: Black Holes</div>
             </div>
-
-            <!-- Interactive Tools (link to calculators) -->
+            <!-- Interactive card -->
             <div class="category-card">
-                <div class="category-title">
-                    <span>📐</span> Interactive
-                </div>
+                <div class="category-title"><span>📐</span> Interactive Tools</div>
                 <p style="color: var(--text-secondary); margin-bottom: 1rem;">Hands‑on calculators and simulators.</p>
                 <ul class="topic-list">
                     <li><a href="#calculators" id="calcLink">E=mc² · Ideal Gas · Ohm's Law <span class="arrow">↓</span></a></li>
@@ -178,31 +178,22 @@
 
     <script src="script.js"></script>
     <script>
-        // Search function
         function searchTopics() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let topics = document.querySelectorAll('.topic-list a');
             topics.forEach(link => {
                 let text = link.innerText.toLowerCase();
                 let li = link.parentElement;
-                if (text.includes(input)) {
-                    li.style.display = '';
-                } else {
-                    li.style.display = 'none';
-                }
+                if (text.includes(input)) li.style.display = '';
+                else li.style.display = 'none';
             });
-            // Also show/hide categories if no visible topics
             let cats = document.querySelectorAll('.category-card');
             cats.forEach(cat => {
-                let visibleTopics = cat.querySelectorAll('.topic-list li[style=""]').length;
-                if (visibleTopics === 0 && input !== "") {
-                    cat.style.display = 'none';
-                } else {
-                    cat.style.display = '';
-                }
+                let visible = cat.querySelectorAll('.topic-list li[style=""]').length;
+                if (visible === 0 && input !== "") cat.style.display = 'none';
+                else cat.style.display = '';
             });
         }
-        // Smooth scroll to calculators from directory
         document.getElementById('calcLink')?.addEventListener('click', function(e) {
             e.preventDefault();
             document.querySelector('#calculators').scrollIntoView({ behavior: 'smooth' });
