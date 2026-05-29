@@ -3,54 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netherscapian Department of Science | Official Encyclopedia</title>
+    <title>Netherscapian Department of Science</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="header-container">
-            <div class="dept-name">
+            <div class="title">
                 <span class="emblem">⚛️</span>
                 <div>
                     <h1>Netherscapian Department of Science</h1>
-                    <p class="tagline">Chemistry & Physics Encyclopedia</p>
+                    <p class="sub">Official Chemistry & Physics Encyclopedia</p>
                 </div>
             </div>
-            <button class="theme-toggle" id="themeToggle" aria-label="Dark mode">🌙</button>
+            <button id="themeToggle" class="theme-btn">🌙 Dark mode</button>
         </div>
-        <nav class="main-nav">
+        <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#chemistry">Chemistry</a></li>
                 <li><a href="#physics">Physics</a></li>
-                <li><a href="#calculators">Tools</a></li>
+                <li><a href="#calculators">Calculators</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section id="home" class="hero">
-            <h2>Welcome to the <span class="highlight">Netherscapian</span> Science Hub</h2>
-            <p>Authoritative, open‑access encyclopedia covering fundamental principles of chemistry and physics. Developed for students, educators, and the curious mind.</p>
-            <div class="hero-stats">
-                <div class="stat"><strong>118</strong> Elements</div>
-                <div class="stat"><strong>12</strong> In‑depth Articles</div>
-                <div class="stat"><strong>3</strong> Interactive Calculators</div>
+            <h2>Welcome to the <span class="accent">Netherscapian</span> Science Hub</h2>
+            <p>Authoritative, peer‑reviewed content covering fundamental principles of chemistry and physics. Free for all.</p>
+            <div class="stats">
+                <div class="stat">📊 118 elements</div>
+                <div class="stat">📚 12 articles</div>
+                <div class="stat">🧮 3 calculators</div>
             </div>
         </section>
 
         <section id="chemistry" class="section">
             <div class="container">
                 <h2>🧪 Chemistry</h2>
-                <div class="section-desc">The science of matter – from atoms to complex reactions.</div>
                 <div class="card-grid">
-                    <a href="topics/chemistry/periodic-table.html" class="card">📊 Periodic Table</a>
-                    <a href="topics/chemistry/chemical-bonding.html" class="card">🔗 Chemical Bonding</a>
-                    <a href="topics/chemistry/thermodynamics.html" class="card">🔥 Thermodynamics</a>
-                    <a href="topics/chemistry/acids-bases.html" class="card">🧴 Acids & Bases</a>
-                    <a href="topics/chemistry/organic-chemistry.html" class="card">🌿 Organic Chemistry</a>
-                    <a href="topics/chemistry/electrochemistry.html" class="card">⚡ Electrochemistry</a>
+                    <a href="topics/chemistry/periodic-table.html" class="card">Periodic Table</a>
+                    <a href="topics/chemistry/chemical-bonding.html" class="card">Chemical Bonding</a>
+                    <a href="topics/chemistry/thermodynamics.html" class="card">Thermodynamics</a>
+                    <a href="topics/chemistry/acids-bases.html" class="card">Acids & Bases</a>
+                    <a href="topics/chemistry/organic-chemistry.html" class="card">Organic Chemistry</a>
+                    <a href="topics/chemistry/electrochemistry.html" class="card">Electrochemistry</a>
                 </div>
             </div>
         </section>
@@ -58,45 +57,40 @@
         <section id="physics" class="section alt-bg">
             <div class="container">
                 <h2>🌌 Physics</h2>
-                <div class="section-desc">From quantum particles to the structure of the cosmos.</div>
                 <div class="card-grid">
-                    <a href="topics/physics/quantum-mechanics.html" class="card">⚛️ Quantum Mechanics</a>
-                    <a href="topics/physics/relativity.html" class="card">🌠 Relativity</a>
-                    <a href="topics/physics/astrophysics.html" class="card">🔭 Astrophysics</a>
-                    <a href="topics/physics/electromagnetism.html" class="card">🧲 Electromagnetism</a>
-                    <a href="topics/physics/thermodynamics-physics.html" class="card">🔥 Thermodynamics (Physics)</a>
-                    <a href="topics/physics/nuclear-physics.html" class="card">☢️ Nuclear Physics</a>
+                    <a href="topics/physics/quantum-mechanics.html" class="card">Quantum Mechanics</a>
+                    <a href="topics/physics/relativity.html" class="card">Relativity</a>
+                    <a href="topics/physics/astrophysics.html" class="card">Astrophysics</a>
+                    <a href="topics/physics/electromagnetism.html" class="card">Electromagnetism</a>
+                    <a href="topics/physics/thermodynamics-physics.html" class="card">Thermodynamics (Physics)</a>
+                    <a href="topics/physics/nuclear-physics.html" class="card">Nuclear Physics</a>
                 </div>
             </div>
         </section>
 
         <section id="calculators" class="section">
             <div class="container">
-                <h2>📐 Scientific Calculators</h2>
-                <div class="section-desc">Interactive tools for fundamental equations.</div>
+                <h2>📐 Interactive Calculators</h2>
                 <div class="calc-grid">
                     <div class="calc-card">
                         <h3>E = mc²</h3>
-                        <p>Mass → Energy</p>
                         <input type="number" id="mass" placeholder="Mass (kg)">
                         <button onclick="calcEnergy()">Calculate</button>
                         <div id="energyResult" class="result"></div>
                     </div>
                     <div class="calc-card">
                         <h3>Ideal Gas Law</h3>
-                        <p>PV = nRT → Temperature</p>
                         <input type="number" id="pressure" placeholder="Pressure (atm)">
                         <input type="number" id="volume" placeholder="Volume (L)">
                         <input type="number" id="moles" placeholder="Moles (n)">
-                        <button onclick="calcTemp()">Calculate T</button>
+                        <button onclick="calcTemp()">Calculate T (K)</button>
                         <div id="tempResult" class="result"></div>
                     </div>
                     <div class="calc-card">
                         <h3>Ohm's Law</h3>
-                        <p>V = I·R → Resistance</p>
                         <input type="number" id="voltage" placeholder="Voltage (V)">
                         <input type="number" id="current" placeholder="Current (A)">
-                        <button onclick="calcResistance()">Calculate R</button>
+                        <button onclick="calcResistance()">Calculate R (Ω)</button>
                         <div id="resistanceResult" class="result"></div>
                     </div>
                 </div>
@@ -105,9 +99,9 @@
     </main>
 
     <footer>
-        <p>Netherscapian Department of Science — Open educational resource</p>
+        <p>Netherscapian Department of Science — open educational resource</p>
         <p class="credit">Made by JakeOn_PC</p>
-        <p class="small">© 2025 | All content freely available</p>
+        <p class="small">© 2025</p>
     </footer>
 
     <script src="script.js"></script>
