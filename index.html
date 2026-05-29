@@ -3,14 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prism Labs | Chemistry & Physics</title>
+    <title>Prism Labs | Science Encyclopedia</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional directory-specific styles */
+        .directory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .category-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.2);
+        }
+        .category-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .topic-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        .topic-list li {
+            margin: 0.75rem 0;
+            padding: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .topic-list a {
+            text-decoration: none;
+            color: var(--text);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.2s;
+        }
+        .topic-list a:hover {
+            color: var(--accent);
+        }
+        .arrow {
+            opacity: 0.6;
+        }
+        .featured {
+            background: linear-gradient(135deg, var(--accent), #764ba2);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .search-box {
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border-radius: 50px;
+        }
+    </style>
 </head>
 <body>
     <nav>
-        <div class="logo">⚛️ <span>Prism Labs</span></div>
+        <div class="logo">📚 <span>Prism Labs</span> <span style="font-size:0.8rem;">Encyclopedia</span></div>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="#chemistry">Chemistry</a></li>
             <li><a href="#physics">Physics</a></li>
             <li><a href="#calculators">Calculators</a></li>
@@ -18,47 +86,59 @@
         <button class="theme-toggle" id="themeToggle">🌙</button>
     </nav>
 
-    <section id="home" class="hero">
-        <h1>Explore the <span class="gradient">Fundamental</span><br>Laws of Nature</h1>
-        <p>Where chemistry meets physics — from quantum particles to cosmic phenomena.</p>
-        <div>
-            <a href="#chemistry" class="btn btn-primary">Start Exploring</a>
-            <a href="#calculators" class="btn btn-secondary">Interactive Tools</a>
-        </div>
-        <div class="stats">
-            <div class="stat"><div class="stat-number">118</div><div class="stat-label">Elements</div></div>
-            <div class="stat"><div class="stat-number">4</div><div class="stat-label">Forces</div></div>
-            <div class="stat"><div class="stat-number">10⁻⁴³</div><div class="stat-label">Planck Time (s)</div></div>
+    <section class="hero" style="padding-bottom: 2rem;">
+        <h1>📖 Science <span class="gradient">Encyclopedia</span></h1>
+        <p>Your free, interactive guide to chemistry and physics – from atoms to black holes.</p>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Search topics... (e.g., quantum, bond, star)" onkeyup="searchTopics()">
         </div>
     </section>
 
-    <section id="chemistry" class="section">
-        <div class="container">
-            <h2>🧪 Chemistry</h2>
-            <div class="section-subtitle">The science of matter and its transformations</div>
-            <div class="grid">
-                <div class="card"><div class="card-icon">⚛️</div><h3>Periodic Table</h3><p>118 elements with unique properties and electron configurations.</p></div>
-                <div class="card"><div class="card-icon">🔗</div><h3>Chemical Bonding</h3><p>Ionic, covalent, metallic — how atoms stick together.</p></div>
-                <div class="card"><div class="card-icon">🔥</div><h3>Thermodynamics</h3><p>Energy, entropy, and the direction of reactions.</p></div>
-                <div class="card"><div class="card-icon">🧫</div><h3>Organic Chemistry</h3><p>Carbon-based life, polymers, and pharmaceuticals.</p></div>
+    <div class="container" style="padding: 0 2rem 4rem;">
+        <div class="directory-grid">
+            <!-- Chemistry Category -->
+            <div class="category-card" id="chemistry-cat">
+                <div class="category-title">
+                    <span>🧪</span> Chemistry
+                </div>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">The study of matter, elements, and reactions.</p>
+                <ul class="topic-list">
+                    <li><a href="topics/chemistry/periodic-table.html">Periodic Table <span class="arrow">→</span></a></li>
+                    <li><a href="topics/chemistry/chemical-bonding.html">Chemical Bonding <span class="arrow">→</span></a></li>
+                    <li><a href="topics/chemistry/thermodynamics.html">Thermodynamics <span class="arrow">→</span></a></li>
+                </ul>
+                <div class="featured" style="margin-top: 1rem; display: inline-block;">New: Organic Chemistry coming soon</div>
+            </div>
+
+            <!-- Physics Category -->
+            <div class="category-card" id="physics-cat">
+                <div class="category-title">
+                    <span>🌌</span> Physics
+                </div>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">From quantum particles to cosmic structures.</p>
+                <ul class="topic-list">
+                    <li><a href="topics/physics/quantum-mechanics.html">Quantum Mechanics <span class="arrow">→</span></a></li>
+                    <li><a href="topics/physics/relativity.html">Relativity <span class="arrow">→</span></a></li>
+                    <li><a href="topics/physics/astrophysics.html">Astrophysics <span class="arrow">→</span></a></li>
+                </ul>
+                <div class="featured" style="margin-top: 1rem; display: inline-block;">Featured: Black Holes</div>
+            </div>
+
+            <!-- Interactive Tools (link to calculators) -->
+            <div class="category-card">
+                <div class="category-title">
+                    <span>📐</span> Interactive
+                </div>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">Hands‑on calculators and simulators.</p>
+                <ul class="topic-list">
+                    <li><a href="#calculators" id="calcLink">E=mc² · Ideal Gas · Ohm's Law <span class="arrow">↓</span></a></li>
+                    <li><a href="#">Coming: Molecular viewer</a></li>
+                </ul>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="physics" class="section" style="background: var(--bg-secondary);">
-        <div class="container">
-            <h2>🌌 Physics</h2>
-            <div class="section-subtitle">Understanding the universe from quarks to galaxies</div>
-            <div class="grid">
-                <div class="card"><div class="card-icon">⚡</div><h3>Quantum Mechanics</h3><p>Wave-particle duality, superposition, entanglement.</p></div>
-                <div class="card"><div class="card-icon">🌠</div><h3>Relativity</h3><p>Einstein's space-time, time dilation, and E=mc².</p></div>
-                <div class="card"><div class="card-icon">☢️</div><h3>Nuclear Physics</h3><p>Radioactivity, fission, fusion — power of the nucleus.</p></div>
-                <div class="card"><div class="card-icon">🔭</div><h3>Astrophysics</h3><p>Stars, black holes, dark matter, and the cosmos.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="calculators" class="section">
+    <section id="calculators" class="section" style="background: var(--bg-secondary);">
         <div class="container">
             <h2>📐 Interactive Calculators</h2>
             <div class="section-subtitle">Play with fundamental equations</div>
@@ -92,10 +172,41 @@
     </section>
 
     <footer>
-        <p>⚛️ Prism Labs — Where science shines</p>
-        <p style="font-size: 0.8rem; margin-top: 0.5rem;">© 2024 | Open source science education</p>
+        <p>📚 Prism Labs Encyclopedia — Open source science for everyone</p>
+        <p style="font-size: 0.8rem;">© 2025 | Explore, learn, and question</p>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Search function
+        function searchTopics() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let topics = document.querySelectorAll('.topic-list a');
+            topics.forEach(link => {
+                let text = link.innerText.toLowerCase();
+                let li = link.parentElement;
+                if (text.includes(input)) {
+                    li.style.display = '';
+                } else {
+                    li.style.display = 'none';
+                }
+            });
+            // Also show/hide categories if no visible topics
+            let cats = document.querySelectorAll('.category-card');
+            cats.forEach(cat => {
+                let visibleTopics = cat.querySelectorAll('.topic-list li[style=""]').length;
+                if (visibleTopics === 0 && input !== "") {
+                    cat.style.display = 'none';
+                } else {
+                    cat.style.display = '';
+                }
+            });
+        }
+        // Smooth scroll to calculators from directory
+        document.getElementById('calcLink')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#calculators').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
