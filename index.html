@@ -3,92 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prism Labs | Roblox Science Hub</title>
+    <title>Netherscapian Department of Science | Official Encyclopedia</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="profile-header">
-        <div class="profile-banner"></div>
-        <div class="profile-container">
-            <div class="avatar">
-                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=PrismLabs&backgroundColor=667eea" alt="Avatar">
-            </div>
-            <div class="profile-info">
-                <h1>PrismLabs <span class="badge">🔥 Science Master</span></h1>
-                <div class="stats-row">
-                    <div class="stat-box">📚 <strong>118</strong> Elements</div>
-                    <div class="stat-box">🌌 <strong>4</strong> Forces</div>
-                    <div class="stat-box">🧪 <strong>12</strong> Topics</div>
-                </div>
-                <div class="level-progress">
-                    <span>Level 42 – Quantum Explorer</span>
-                    <div class="progress-bar"><div class="progress-fill" style="width:68%"></div></div>
+    <header>
+        <div class="header-container">
+            <div class="dept-name">
+                <span class="emblem">⚛️</span>
+                <div>
+                    <h1>Netherscapian Department of Science</h1>
+                    <p class="tagline">Chemistry & Physics Encyclopedia</p>
                 </div>
             </div>
-            <button class="theme-toggle-roblox" id="themeToggle">🌙 Dark</button>
+            <button class="theme-toggle" id="themeToggle" aria-label="Dark mode">🌙</button>
         </div>
-    </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#chemistry">Chemistry</a></li>
+                <li><a href="#physics">Physics</a></li>
+                <li><a href="#calculators">Tools</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="game-grid">
-        <!-- Chemistry World (6 articles) -->
-        <div class="world-card">
-            <div class="world-icon">🧪</div>
-            <h2>Chemistry World</h2>
-            <p>6 topics – from atoms to reactions</p>
-            <div class="achievement-list">
-                <a href="topics/chemistry/periodic-table.html" class="achieve">📊 Periodic Table <span class="xp">+250 XP</span></a>
-                <a href="topics/chemistry/chemical-bonding.html" class="achieve">🔗 Chemical Bonding <span class="xp">+300 XP</span></a>
-                <a href="topics/chemistry/thermodynamics.html" class="achieve">🔥 Thermodynamics <span class="xp">+400 XP</span></a>
-                <a href="topics/chemistry/acids-bases.html" class="achieve">🧴 Acids & Bases <span class="xp">+280 XP</span></a>
-                <a href="topics/chemistry/organic-chemistry.html" class="achieve">🌿 Organic Chemistry <span class="xp">+450 XP</span></a>
-                <a href="topics/chemistry/electrochemistry.html" class="achieve">⚡ Electrochemistry <span class="xp">+380 XP</span></a>
+    <main>
+        <section id="home" class="hero">
+            <h2>Welcome to the <span class="highlight">Netherscapian</span> Science Hub</h2>
+            <p>Authoritative, open‑access encyclopedia covering fundamental principles of chemistry and physics. Developed for students, educators, and the curious mind.</p>
+            <div class="hero-stats">
+                <div class="stat"><strong>118</strong> Elements</div>
+                <div class="stat"><strong>12</strong> In‑depth Articles</div>
+                <div class="stat"><strong>3</strong> Interactive Calculators</div>
             </div>
-            <div class="world-footer">🎖️ 6/6 badges available</div>
-        </div>
+        </section>
 
-        <!-- Physics World (6 articles) -->
-        <div class="world-card">
-            <div class="world-icon">🌌</div>
-            <h2>Physics World</h2>
-            <p>6 topics – from quantum to cosmos</p>
-            <div class="achievement-list">
-                <a href="topics/physics/quantum-mechanics.html" class="achieve">⚛️ Quantum Mechanics <span class="xp">+500 XP</span></a>
-                <a href="topics/physics/relativity.html" class="achieve">🌠 Relativity <span class="xp">+450 XP</span></a>
-                <a href="topics/physics/astrophysics.html" class="achieve">🔭 Astrophysics <span class="xp">+600 XP</span></a>
-                <a href="topics/physics/electromagnetism.html" class="achieve">🧲 Electromagnetism <span class="xp">+350 XP</span></a>
-                <a href="topics/physics/thermodynamics-physics.html" class="achieve">🔥 Thermodynamics (Physics) <span class="xp">+400 XP</span></a>
-                <a href="topics/physics/nuclear-physics.html" class="achieve">☢️ Nuclear Physics <span class="xp">+520 XP</span></a>
+        <section id="chemistry" class="section">
+            <div class="container">
+                <h2>🧪 Chemistry</h2>
+                <div class="section-desc">The science of matter – from atoms to complex reactions.</div>
+                <div class="card-grid">
+                    <a href="topics/chemistry/periodic-table.html" class="card">📊 Periodic Table</a>
+                    <a href="topics/chemistry/chemical-bonding.html" class="card">🔗 Chemical Bonding</a>
+                    <a href="topics/chemistry/thermodynamics.html" class="card">🔥 Thermodynamics</a>
+                    <a href="topics/chemistry/acids-bases.html" class="card">🧴 Acids & Bases</a>
+                    <a href="topics/chemistry/organic-chemistry.html" class="card">🌿 Organic Chemistry</a>
+                    <a href="topics/chemistry/electrochemistry.html" class="card">⚡ Electrochemistry</a>
+                </div>
             </div>
-            <div class="world-footer">🎖️ 6/6 badges available</div>
-        </div>
+        </section>
 
-        <!-- Interactive Tools -->
-        <div class="world-card powerups">
-            <div class="world-icon">📐</div>
-            <h2>Power‑Up Tools</h2>
-            <p>Calculate like a pro</p>
-            <div class="calc-mini">
-                <button class="calc-mini-btn" onclick="alert('E=mc²: Energy = mass × (299,792,458)² Joules')">⚛️ E=mc²</button>
-                <button class="calc-mini-btn" onclick="alert('Ideal Gas: PV = nRT → T = PV/(nR)')">🧪 Gas Law</button>
-                <button class="calc-mini-btn" onclick="alert('Ohm: V = IR → R = V/I')">⚡ Ohm's Law</button>
+        <section id="physics" class="section alt-bg">
+            <div class="container">
+                <h2>🌌 Physics</h2>
+                <div class="section-desc">From quantum particles to the structure of the cosmos.</div>
+                <div class="card-grid">
+                    <a href="topics/physics/quantum-mechanics.html" class="card">⚛️ Quantum Mechanics</a>
+                    <a href="topics/physics/relativity.html" class="card">🌠 Relativity</a>
+                    <a href="topics/physics/astrophysics.html" class="card">🔭 Astrophysics</a>
+                    <a href="topics/physics/electromagnetism.html" class="card">🧲 Electromagnetism</a>
+                    <a href="topics/physics/thermodynamics-physics.html" class="card">🔥 Thermodynamics (Physics)</a>
+                    <a href="topics/physics/nuclear-physics.html" class="card">☢️ Nuclear Physics</a>
+                </div>
             </div>
-            <div class="world-footer">🔧 More calculators coming soon</div>
-        </div>
-    </div>
+        </section>
 
-    <div class="leaderboard">
-        <h3>🏆 Top Science Achievements</h3>
-        <div class="leaderboard-list">
-            <div class="leader-item">🥇 Quantum Entangler – 1,500 points</div>
-            <div class="leader-item">🥈 Black Hole Explorer – 1,350 points</div>
-            <div class="leader-item">🥉 Organic Chemist – 1,200 points</div>
-        </div>
-    </div>
+        <section id="calculators" class="section">
+            <div class="container">
+                <h2>📐 Scientific Calculators</h2>
+                <div class="section-desc">Interactive tools for fundamental equations.</div>
+                <div class="calc-grid">
+                    <div class="calc-card">
+                        <h3>E = mc²</h3>
+                        <p>Mass → Energy</p>
+                        <input type="number" id="mass" placeholder="Mass (kg)">
+                        <button onclick="calcEnergy()">Calculate</button>
+                        <div id="energyResult" class="result"></div>
+                    </div>
+                    <div class="calc-card">
+                        <h3>Ideal Gas Law</h3>
+                        <p>PV = nRT → Temperature</p>
+                        <input type="number" id="pressure" placeholder="Pressure (atm)">
+                        <input type="number" id="volume" placeholder="Volume (L)">
+                        <input type="number" id="moles" placeholder="Moles (n)">
+                        <button onclick="calcTemp()">Calculate T</button>
+                        <div id="tempResult" class="result"></div>
+                    </div>
+                    <div class="calc-card">
+                        <h3>Ohm's Law</h3>
+                        <p>V = I·R → Resistance</p>
+                        <input type="number" id="voltage" placeholder="Voltage (V)">
+                        <input type="number" id="current" placeholder="Current (A)">
+                        <button onclick="calcResistance()">Calculate R</button>
+                        <div id="resistanceResult" class="result"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>🎮 Prism Labs – Where science becomes an adventure</p>
-        <p>12 in‑depth articles | Free encyclopedia</p>
+        <p>Netherscapian Department of Science — Open educational resource</p>
+        <p class="credit">Made by JakeOn_PC</p>
+        <p class="small">© 2025 | All content freely available</p>
     </footer>
 
     <script src="script.js"></script>
