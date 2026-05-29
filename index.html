@@ -3,201 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prism Labs | Science Encyclopedia</title>
+    <title>Prism Labs | Roblox‑Style Science Hub</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .directory-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .category-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 1.8rem;
-            transition: all 0.3s;
-        }
-        .category-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
-        }
-        .category-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-        .topic-list {
-            list-style: none;
-            margin-top: 1.2rem;
-        }
-        .topic-list li {
-            margin: 0.9rem 0;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-        .topic-list a {
-            text-decoration: none;
-            color: var(--text);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 500;
-            transition: 0.2s;
-        }
-        .topic-list a:hover {
-            color: var(--accent);
-            transform: translateX(4px);
-        }
-        .arrow {
-            opacity: 0.6;
-            font-size: 1.2rem;
-        }
-        .featured-badge {
-            background: linear-gradient(135deg, var(--accent), #764ba2);
-            color: white;
-            padding: 0.2rem 0.8rem;
-            border-radius: 30px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 1rem;
-        }
-        .search-box {
-            max-width: 540px;
-            margin: 2rem auto 0;
-        }
-        .search-box input {
-            width: 100%;
-            padding: 1rem 1.5rem;
-            font-size: 1rem;
-            border-radius: 60px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            color: var(--text);
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <div class="logo">📚 <span>Prism Labs</span> <span style="font-size:0.8rem; font-weight:normal;">Encyclopedia</span></div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#chemistry">Chemistry</a></li>
-            <li><a href="#physics">Physics</a></li>
-            <li><a href="#calculators">Calculators</a></li>
-        </ul>
-        <button class="theme-toggle" id="themeToggle">🌙</button>
-    </nav>
-
-    <section class="hero" style="padding-bottom: 2rem;">
-        <h1>📖 Science <span class="gradient">Encyclopedia</span></h1>
-        <p>Your free, interactive guide to chemistry and physics – from atoms to black holes.</p>
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="🔍 Search topics... (quantum, bonding, star, etc.)" onkeyup="searchTopics()">
-        </div>
-    </section>
-
-    <div class="container" style="padding: 0 2rem 4rem;">
-        <div class="directory-grid">
-            <!-- Chemistry -->
-            <div class="category-card" id="chemistry-cat">
-                <div class="category-title"><span>🧪</span> Chemistry</div>
-                <p style="color: var(--text-secondary); margin-bottom: 1rem;">The study of matter, elements, and chemical reactions.</p>
-                <ul class="topic-list">
-                    <li><a href="topics/chemistry/periodic-table.html">Periodic Table <span class="arrow">→</span></a></li>
-                    <li><a href="topics/chemistry/chemical-bonding.html">Chemical Bonding <span class="arrow">→</span></a></li>
-                    <li><a href="topics/chemistry/thermodynamics.html">Thermodynamics <span class="arrow">→</span></a></li>
-                </ul>
-                <div class="featured-badge">✨ New: Organic Chemistry coming soon</div>
+    <div class="profile-header">
+        <div class="profile-banner"></div>
+        <div class="profile-container">
+            <div class="avatar">
+                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=PrismLabs&backgroundColor=667eea" alt="Avatar">
             </div>
-            <!-- Physics -->
-            <div class="category-card" id="physics-cat">
-                <div class="category-title"><span>🌌</span> Physics</div>
-                <p style="color: var(--text-secondary); margin-bottom: 1rem;">From quantum particles to cosmic structures.</p>
-                <ul class="topic-list">
-                    <li><a href="topics/physics/quantum-mechanics.html">Quantum Mechanics <span class="arrow">→</span></a></li>
-                    <li><a href="topics/physics/relativity.html">Relativity <span class="arrow">→</span></a></li>
-                    <li><a href="topics/physics/astrophysics.html">Astrophysics <span class="arrow">→</span></a></li>
-                </ul>
-                <div class="featured-badge">🔭 Featured: Black Holes</div>
+            <div class="profile-info">
+                <h1>PrismLabs <span class="badge">🔥 Science Master</span></h1>
+                <div class="stats-row">
+                    <div class="stat-box">📚 <strong>118</strong> Elements</div>
+                    <div class="stat-box">🌌 <strong>4</strong> Forces</div>
+                    <div class="stat-box">🧪 <strong>6</strong> Topics</div>
+                </div>
+                <div class="level-progress">
+                    <span>Level 42 – Quantum Explorer</span>
+                    <div class="progress-bar"><div class="progress-fill" style="width:68%"></div></div>
+                </div>
             </div>
-            <!-- Interactive card -->
-            <div class="category-card">
-                <div class="category-title"><span>📐</span> Interactive Tools</div>
-                <p style="color: var(--text-secondary); margin-bottom: 1rem;">Hands‑on calculators and simulators.</p>
-                <ul class="topic-list">
-                    <li><a href="#calculators" id="calcLink">E=mc² · Ideal Gas · Ohm's Law <span class="arrow">↓</span></a></li>
-                    <li><a href="#">Coming: Molecular viewer</a></li>
-                </ul>
-            </div>
+            <button class="theme-toggle-roblox" id="themeToggle">🌙 Dark</button>
         </div>
     </div>
 
-    <section id="calculators" class="section" style="background: var(--bg-secondary);">
-        <div class="container">
-            <h2>📐 Interactive Calculators</h2>
-            <div class="section-subtitle">Play with fundamental equations</div>
-            <div class="calc-grid">
-                <div class="calc-card">
-                    <h3>⚛️ E = mc²</h3>
-                    <p>Convert mass to energy</p>
-                    <input type="number" id="mass" placeholder="Mass (kg)">
-                    <button class="calc-btn" onclick="calcEnergy()">Calculate Energy</button>
-                    <div id="energyResult" class="result"></div>
-                </div>
-                <div class="calc-card">
-                    <h3>🧪 Ideal Gas Law</h3>
-                    <p>PV = nRT (find Temperature)</p>
-                    <input type="number" id="pressure" placeholder="Pressure (atm)">
-                    <input type="number" id="volume" placeholder="Volume (L)">
-                    <input type="number" id="moles" placeholder="Moles (n)">
-                    <button class="calc-btn" onclick="calcTemp()">Calculate T (K)</button>
-                    <div id="tempResult" class="result"></div>
-                </div>
-                <div class="calc-card">
-                    <h3>⚡ Ohm's Law</h3>
-                    <p>V = I × R</p>
-                    <input type="number" id="voltage" placeholder="Voltage (V)">
-                    <input type="number" id="current" placeholder="Current (A)">
-                    <button class="calc-btn" onclick="calcResistance()">Calculate Resistance</button>
-                    <div id="resistanceResult" class="result"></div>
-                </div>
+    <div class="game-grid">
+        <!-- Chemistry World -->
+        <div class="world-card">
+            <div class="world-icon">🧪</div>
+            <h2>Chemistry World</h2>
+            <p>Unlock the secrets of molecules and reactions</p>
+            <div class="achievement-list">
+                <a href="topics/chemistry/periodic-table.html" class="achieve">📊 Periodic Table <span class="xp">+250 XP</span></a>
+                <a href="topics/chemistry/chemical-bonding.html" class="achieve">🔗 Chemical Bonding <span class="xp">+300 XP</span></a>
+                <a href="topics/chemistry/thermodynamics.html" class="achieve">🔥 Thermodynamics <span class="xp">+400 XP</span></a>
             </div>
+            <div class="world-footer">⚡ 3 / 6 badges collected</div>
         </div>
-    </section>
+
+        <!-- Physics World -->
+        <div class="world-card">
+            <div class="world-icon">🌌</div>
+            <h2>Physics World</h2>
+            <p>From quantum to cosmos – master reality</p>
+            <div class="achievement-list">
+                <a href="topics/physics/quantum-mechanics.html" class="achieve">⚛️ Quantum Mechanics <span class="xp">+500 XP</span></a>
+                <a href="topics/physics/relativity.html" class="achieve">🌠 Relativity <span class="xp">+450 XP</span></a>
+                <a href="topics/physics/astrophysics.html" class="achieve">🔭 Astrophysics <span class="xp">+600 XP</span></a>
+            </div>
+            <div class="world-footer">🌟 3 / 6 badges collected</div>
+        </div>
+
+        <!-- Interactive Tools = Power‑Ups -->
+        <div class="world-card powerups">
+            <div class="world-icon">📐</div>
+            <h2>Power‑Up Tools</h2>
+            <p>Calculate like a pro</p>
+            <div class="calc-mini">
+                <button class="calc-mini-btn" onclick="alert('E=mc²: Energy = mass × c²')">⚛️ E=mc²</button>
+                <button class="calc-mini-btn" onclick="alert('Ideal Gas: PV = nRT')">🧪 Gas Law</button>
+                <button class="calc-mini-btn" onclick="alert('Ohm: V = IR')">⚡ Ohm's Law</button>
+            </div>
+            <div class="world-footer">🔧 Equip anytime</div>
+        </div>
+    </div>
+
+    <div class="leaderboard">
+        <h3>🏆 Top Science Achievements</h3>
+        <div class="leaderboard-list">
+            <div class="leader-item">🥇 Periodic Table Master – 1,200 points</div>
+            <div class="leader-item">🥈 Quantum Entangler – 1,150 points</div>
+            <div class="leader-item">🥉 Black Hole Explorer – 1,050 points</div>
+        </div>
+    </div>
 
     <footer>
-        <p>📚 Prism Labs Encyclopedia — Open source science for everyone</p>
-        <p style="font-size: 0.8rem;">© 2025 | Explore, learn, and question</p>
+        <p>🎮 Prism Labs – Where science becomes an adventure</p>
+        <p>© 2025 | Roblox‑inspired learning hub</p>
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        function searchTopics() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let topics = document.querySelectorAll('.topic-list a');
-            topics.forEach(link => {
-                let text = link.innerText.toLowerCase();
-                let li = link.parentElement;
-                if (text.includes(input)) li.style.display = '';
-                else li.style.display = 'none';
-            });
-            let cats = document.querySelectorAll('.category-card');
-            cats.forEach(cat => {
-                let visible = cat.querySelectorAll('.topic-list li[style=""]').length;
-                if (visible === 0 && input !== "") cat.style.display = 'none';
-                else cat.style.display = '';
-            });
-        }
-        document.getElementById('calcLink')?.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector('#calculators').scrollIntoView({ behavior: 'smooth' });
-        });
-    </script>
 </body>
 </html>
