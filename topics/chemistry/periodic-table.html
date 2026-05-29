@@ -3,36 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Periodic Table | Prism Labs</title>
+    <title>Periodic Table | Prism Labs Encyclopedia</title>
     <link rel="stylesheet" href="../../style.css">
     <style>
-        .article-content {
-            max-width: 800px;
+        .article-container {
+            max-width: 1000px;
             margin: 2rem auto;
             padding: 2rem;
             background: var(--card);
-            border-radius: 20px;
+            border-radius: 28px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
         .back-link {
-            display: inline-block;
-            margin: 1rem 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             color: var(--accent);
             text-decoration: none;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-        }
-        th, td {
-            border: 1px solid var(--border);
-            padding: 0.5rem;
-            text-align: left;
-        }
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .article-meta { color: var(--text-secondary); border-left: 3px solid var(--accent); padding-left: 1rem; margin: 1rem 0 2rem; }
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: var(--bg-secondary); border-radius: 12px; overflow: hidden; }
+        th, td { border: 1px solid var(--border); padding: 0.75rem; text-align: left; }
+        th { background: var(--accent); color: white; }
     </style>
 </head>
 <body>
-    <nav>...</nav> <!-- same navigation, copy from index or use include? We'll copy -->
-    <!-- For brevity, I'll provide full HTML but you can reuse nav structure -->
+    <nav>
+        <div class="logo">📚 <span>Prism Labs</span></div>
+        <ul class="nav-links">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../index.html#chemistry">Chemistry</a></li>
+            <li><a href="../../index.html#physics">Physics</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+    </nav>
+
+    <div class="container">
+        <div class="article-container">
+            <a href="../../index.html" class="back-link">← Back to Encyclopedia</a>
+            <h1>⚛️ Periodic Table of Elements</h1>
+            <div class="article-meta">118 elements · Atomic structure · Chemical families</div>
+            
+            <p>The periodic table organizes all known chemical elements by increasing atomic number and recurring chemical properties. It is the foundation of modern chemistry.</p>
+            
+            <h2>📊 Key Groups</h2>
+            <table>
+                <tr><th>Group</th><th>Name</th><th>Properties</th></tr>
+                <tr><td>1</td><td>Alkali metals</td><td>Very reactive, soft, low density</td></tr>
+                <tr><td>2</td><td>Alkaline earth metals</td><td>Reactive, form alkaline oxides</td></tr>
+                <tr><td>17</td><td>Halogens</td><td>Highly reactive nonmetals</td></tr>
+                <tr><td>18</td><td>Noble gases</td><td>Inert, colorless, odorless</td></tr>
+            </table>
+
+            <h2>🧬 Atomic Structure & Trends</h2>
+            <ul>
+                <li><strong>Atomic radius</strong> increases down a group, decreases across a period.</li>
+                <li><strong>Electronegativity</strong> increases left to right, decreases top to bottom.</li>
+                <li><strong>Ionization energy</strong> – energy to remove an electron; highest for noble gases.</li>
+            </ul>
+
+            <p>The modern table (Mendeleev's legacy) predicts undiscovered elements and their properties. It is a must-know for any scientist.</p>
+            
+            <div class="featured-badge" style="margin-top: 1rem;">💡 Did you know? Only 94 of 118 elements occur naturally on Earth.</div>
+        </div>
+    </div>
+
+    <footer><p>📚 Prism Labs Encyclopedia — Free science education</p></footer>
+    <script src="../../script.js"></script>
 </body>
 </html>
