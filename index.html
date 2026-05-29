@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prism Labs | Chemistry & Physics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #ffffff;
+            --bg-secondary: #f5f7fa;
+            --text: #1a202c;
+            --text-secondary: #4a5568;
+            --accent: #667eea;
+            --accent-dark: #5a67d8;
+            --card: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --bg-secondary: #1e293b;
+            --text: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --card: #1e293b;
+            --border: #334155;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            transition: all 0.3s ease;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, var(--accent), #764ba2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--bg) 0%, var(--bg-secondary) 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .gradient {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Calculator section */
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .calc-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .calc-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .calc-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        button.calc-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button.calc-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .result {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .stats { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">⚛️ <span>Prism Labs</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#chemistry">Chemistry</a></li>
+            <li><a href="#physics">Physics</a></li>
+            <li><a href="#calculators">Calculators</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1>Explore the <span class="gradient">Fundamental</span><br>Laws of Nature</h1>
+        <p>Where chemistry meets physics — from quantum particles to cosmic phenomena.</p>
+        <div>
+            <a href="#chemistry" class="btn btn-primary">Start Exploring</a>
+            <a href="#calculators" class="btn btn-secondary">Interactive Tools</a>
+        </div>
+        <div class="stats">
+            <div class="stat"><div class="stat-number">118</div><div class="stat-label">Elements</div></div>
+            <div class="stat"><div class="stat-number">4</div><div class="stat-label">Forces</div></div>
+            <div class="stat"><div class="stat-number">10⁻⁴³</div><div class="stat-label">Planck Time (s)</div></div>
+        </div>
+    </section>
+
+    <section id="chemistry" class="section">
+        <div class="container">
+            <h2>🧪 Chemistry</h2>
+            <div class="section-subtitle">The science of matter and its transformations</div>
+            <div class="grid">
+                <div class="card"><div class="card-icon">⚛️</div><h3>Periodic Table</h3><p>118 elements with unique properties and electron configurations.</p></div>
+                <div class="card"><div class="card-icon">🔗</div><h3>Chemical Bonding</h3><p>Ionic, covalent, metallic — how atoms stick together.</p></div>
+                <div class="card"><div class="card-icon">🔥</div><h3>Thermodynamics</h3><p>Energy, entropy, and the direction of reactions.</p></div>
+                <div class="card"><div class="card-icon">🧫</div><h3>Organic Chemistry</h3><p>Carbon-based life, polymers, and pharmaceuticals.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="physics" class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <h2>🌌 Physics</h2>
+            <div class="section-subtitle">Understanding the universe from quarks to galaxies</div>
+            <div class="grid">
+                <div class="card"><div class="card-icon">⚡</div><h3>Quantum Mechanics</h3><p>Wave-particle duality, superposition, entanglement.</p></div>
+                <div class="card"><div class="card-icon">🌠</div><h3>Relativity</h3><p>Einstein's space-time, time dilation, and E=mc².</p></div>
+                <div class="card"><div class="card-icon">☢️</div><h3>Nuclear Physics</h3><p>Radioactivity, fission, fusion — power of the nucleus.</p></div>
+                <div class="card"><div class="card-icon">🔭</div><h3>Astrophysics</h3><p>Stars, black holes, dark matter, and the cosmos.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculators" class="section">
+        <div class="container">
+            <h2>📐 Interactive Calculators</h2>
+            <div class="section-subtitle">Play with fundamental equations</div>
+            <div class="calc-grid">
+                <div class="calc-card">
+                    <h3>⚛️ E = mc²</h3>
+                    <p>Convert mass to energy</p>
+                    <input type="number" id="mass" placeholder="Mass (kg)">
+                    <button class="calc-btn" onclick="calcEnergy()">Calculate Energy</button>
+                    <div id="energyResult" class="result"></div>
+                </div>
+                <div class="calc-card">
+                    <h3>🧪 Ideal Gas Law</h3>
+                    <p>PV = nRT (find Temperature)</p>
+                    <input type="number" id="pressure" placeholder="Pressure (atm)">
+                    <input type="number" id="volume" placeholder="Volume (L)">
+                    <input type="number" id="moles" placeholder="Moles (n)">
+                    <button class="calc-btn" onclick="calcTemp()">Calculate T (K)</button>
+                    <div id="tempResult" class="result"></div>
+                </div>
+                <div class="calc-card">
+                    <h3>⚡ Ohm's Law</h3>
+                    <p>V = I × R</p>
+                    <input type="number" id="voltage" placeholder="Voltage (V)">
+                    <input type="number" id="current" placeholder="Current (A)">
+                    <button class="calc-btn" onclick="calcResistance()">Calculate Resistance</button>
+                    <div id="resistanceResult" class="result"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>⚛️ Prism Labs — Where science shines</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem;">© 2024 | Open source science education</p>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '☀️';
+        }
+        themeToggle.addEventListener('click', () => {
+            if (document.body.getAttribute('data-theme') === 'dark') {
+                document.body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '🌙';
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '☀️';
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // E=mc^2
+        function calcEnergy() {
+            let m = parseFloat(document.getElementById('mass').value);
+            if (isNaN(m)) { document.getElementById('energyResult').innerHTML = '⚠️ Enter a valid mass'; return; }
+            let c = 299792458;
+            let E = m * c * c;
+            document.getElementById('energyResult').innerHTML = `⚡ ${E.toExponential(4)} Joules`;
+        }
+
+        // Ideal Gas Law
+        function calcTemp() {
+            let P = parseFloat(document.getElementById('pressure').value);
+            let V = parseFloat(document.getElementById('volume').value);
+            let n = parseFloat(document.getElementById('moles').value);
+            let R = 0.0821;
+            if (isNaN(P) || isNaN(V) || isNaN(n) || n === 0) {
+                document.getElementById('tempResult').innerHTML = '⚠️ Fill all fields (n ≠ 0)';
+                return;
+            }
+            let T = (P * V) / (n * R);
+            document.getElementById('tempResult').innerHTML = `🌡️ ${T.toFixed(2)} K (${(T-273.15).toFixed(2)}°C)`;
+        }
+
+        // Ohm's Law
+        function calcResistance() {
+            let V = parseFloat(document.getElementById('voltage').value);
+            let I = parseFloat(document.getElementById('current').value);
+            if (isNaN(V) || isNaN(I) || I === 0) {
+                document.getElementById('resistanceResult').innerHTML = '⚠️ Valid V and I (I ≠ 0)';
+                return;
+            }
+            let R = V / I;
+            document.getElementById('resistanceResult').innerHTML = `⚡ ${R.toFixed(2)} Ω`;
+        }
+    </script>
+</body>
+</html>
